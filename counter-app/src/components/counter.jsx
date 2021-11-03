@@ -12,7 +12,11 @@ class Counter extends React.Component {
         <span className={this.getSpanClasses()}>{this.formatCount()}</span>
         <button className={this.getButtonClasses()}>Increment</button>
         <ul>
-            {this.state.tags.map(tag => <li key={tag}>{tag}</li>)}
+          {this.state.tags.map((tag) => (
+            <li className={this.getListClasses()} key={tag}>
+              {tag}
+            </li>
+          ))}
         </ul>
       </React.Fragment>
     );
@@ -32,6 +36,11 @@ class Counter extends React.Component {
     let buttonClasses =
       "bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded";
     return buttonClasses;
+  }
+
+  getListClasses() {
+    let listClasses = "ml-6 list-disc";
+    return listClasses;
   }
 
   formatCount() {
