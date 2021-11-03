@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Counter extends React.Component {
   state = {
     count: 0,
-    tags: [],
+    tags: ["Damson", "Mangosteen", "Tayberry"],
   };
 
   render() {
