@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Counter extends React.Component {
   state = {
     count: 0,
-    tags: ["tag 1", "tag 2", "tag 3"],
+    tags: [],
   };
 
   render() {
@@ -11,13 +11,10 @@ class Counter extends React.Component {
       <React.Fragment>
         <span className={this.getSpanClasses()}>{this.formatCount()}</span>
         <button className={this.getButtonClasses()}>Increment</button>
-        <ul>
-          {this.state.tags.map((tag) => (
-            <li className={this.getListClasses()} key={tag}>
-              {tag}
-            </li>
-          ))}
-        </ul>
+        <div>
+          {this.state.tags.length === 0 && "The tag list is empty."}
+          {this.renderTags()}
+        </div>
       </React.Fragment>
     );
   }
@@ -43,6 +40,18 @@ class Counter extends React.Component {
     return listClasses;
   }
 
+  renderTags() {
+    if (this.state.tags.length === 0) return <p>Please create a new tag.</p>;
+    return (
+      <ul>
+        {this.state.tags.map((tag) => (
+          <li className={this.getListClasses()} key={tag}>
+            {tag}
+          </li>
+        ))}
+      </ul>
+    );
+  }
   formatCount() {
     const { count } = this.state;
     return count === 0 ? "Zero " : count;
