@@ -6,11 +6,15 @@ class Counter extends React.Component {
     tags: ["Damson", "Mangosteen", "Tayberry"],
   };
 
+  handleIncrement() {
+    console.log("clicked");
+  };
+
   render() {
     return (
       <React.Fragment>
         <span className={this.getSpanClasses()}>{this.formatCount()}</span>
-        <button className={this.getButtonClasses()}>Increment</button>
+        <button onClick={this.handleIncrement} className={this.getButtonClasses()}>Increment</button>
         <div>
           {this.state.tags.length === 0 && "The tag list is empty."}
           {this.renderTags()}
