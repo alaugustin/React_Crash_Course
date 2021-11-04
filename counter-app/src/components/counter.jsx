@@ -2,19 +2,21 @@ import React, { Component } from "react";
 
 class Counter extends React.Component {
   state = {
-    count: 0,
+    value: this.props.value,
     tags: ["Damson", "Mangosteen", "Tayberry"],
   };
 
   handleIncrement = (product) => {
     console.log(product);
-    this.setState({count: this.state.count + 1});
+    this.setState({value: this.state.count + 1});
   };
 
   render() {
+    console.log(this.props);
     return (
       <React.Fragment>
         <div className="mb-4">
+          {this.props.children}
           <span className={this.getSpanClasses()}>{this.formatCount()}</span>
           <button onClick={() => {this.handleIncrement({ id: 1 });}} className={this.getButtonClasses()}>Increment</button>
         </div>
