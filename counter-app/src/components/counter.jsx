@@ -6,8 +6,15 @@ class Counter extends React.Component {
     tags: ["Damson", "Mangosteen", "Tayberry"],
   };
 
-  handleIncrement() {
-    console.log("clicked");
+  // constructor() {
+  //   super();
+  //   // console.log('Constructor', this);
+  //   this.handleIncrement = this.handleIncrement.bind(this);
+  // }
+  // Constructor Would have to be used if handleIncrement() could not be used as an arrow function
+
+  handleIncrement = () => {
+    console.log("clicked", this);
   };
 
   render() {
