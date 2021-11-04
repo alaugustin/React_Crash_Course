@@ -4,11 +4,11 @@ import 'tailwindcss/dist/base.css';
 import 'tailwindcss/dist/components.css';
 import 'tailwindcss/dist/utilities.css';
 import reportWebVitals from './reportWebVitals';
-import Counter from './components/counter';
+import Counters from './components/counters';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Counter />
+    <Counters />
   </React.StrictMode>,
   document.getElementById('root')
 );

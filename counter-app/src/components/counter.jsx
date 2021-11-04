@@ -14,12 +14,14 @@ class Counter extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <span className={this.getSpanClasses()}>{this.formatCount()}</span>
-        <button onClick={() => {this.handleIncrement({ id: 1 });}} className={this.getButtonClasses()}>Increment</button>
-        <div className={"mt-2"}>
+        <div className="mb-4">
+          <span className={this.getSpanClasses()}>{this.formatCount()}</span>
+          <button onClick={() => {this.handleIncrement({ id: 1 });}} className={this.getButtonClasses()}>Increment</button>
+        </div>
+        {/* <div className={"mt-2"}>
           {this.state.tags.length === 0 && "The tag list is empty."}
           {this.renderTags()}
-        </div>
+        </div> */}
       </React.Fragment>
     );
   }
