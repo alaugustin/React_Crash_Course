@@ -13,7 +13,8 @@ class Counter extends React.Component {
   // }
   // Constructor Would have to be used if handleIncrement() could not be used as an arrow function
 
-  handleIncrement = () => {
+  handleIncrement = (product) => {
+    console.log(product);
     this.setState({count: this.state.count + 1});
   };
 
@@ -21,8 +22,8 @@ class Counter extends React.Component {
     return (
       <React.Fragment>
         <span className={this.getSpanClasses()}>{this.formatCount()}</span>
-        <button onClick={this.handleIncrement} className={this.getButtonClasses()}>Increment</button>
-        <div>
+        <button onClick={() => {this.handleIncrement({ id: 1 });}} className={this.getButtonClasses()}>Increment</button>
+        <div className={"mt-2"}>
           {this.state.tags.length === 0 && "The tag list is empty."}
           {this.renderTags()}
         </div>
