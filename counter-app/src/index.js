@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import 'tailwindcss/dist/base.css';
+import 'tailwindcss/dist/components.css';
+import 'tailwindcss/dist/utilities.css';
 import reportWebVitals from './reportWebVitals';
-import 'tailwindcss/dist/tailwind.css'
 import Counter from './components/counter';
-
 
 ReactDOM.render(
   <React.StrictMode>
