@@ -14,7 +14,7 @@ class Counter extends React.Component {
   // Constructor Would have to be used if handleIncrement() could not be used as an arrow function
 
   handleIncrement = () => {
-    console.log("clicked", this);
+    this.setState({count: this.state.count + 1});
   };
 
   render() {
