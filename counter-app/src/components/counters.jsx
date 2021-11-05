@@ -17,13 +17,13 @@ class Counters extends Component {
 
   render() {
     return (
-      <div>
+      <>
         {this.state.counters.map((counter) => (
           <Counter key={counter.id} onDelete={this.handleDelete} value={counter.value}>
             <h3 className={"text-lg font-bold mb-2"}>Counter #{counter.id}</h3>
           </Counter>
         ))}
-      </div>
+      </>
     );
   }
 }
