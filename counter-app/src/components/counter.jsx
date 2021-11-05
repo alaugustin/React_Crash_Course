@@ -3,12 +3,10 @@ import React, { Component } from "react";
 class Counter extends React.Component {
   state = {
     value: this.props.value,
-    tags: ["Damson", "Mangosteen", "Tayberry"],
   };
 
-  handleIncrement = (product) => {
-    console.log(product);
-    this.setState({value: this.state.count + 1});
+  handleIncrement = () => {
+    this.setState({value: this.state.value + 1});
   };
 
   render() {
@@ -16,14 +14,10 @@ class Counter extends React.Component {
     return (
       <React.Fragment>
         <div className="mb-4">
-          {this.props.children}
+          { this.props.children }
           <span className={this.getSpanClasses()}>{this.formatCount()}</span>
           <button onClick={() => {this.handleIncrement({ id: 1 });}} className={this.getButtonClasses()}>Increment</button>
         </div>
-        {/* <div className={"mt-2"}>
-          {this.state.tags.length === 0 && "The tag list is empty."}
-          {this.renderTags()}
-        </div> */}
       </React.Fragment>
     );
   }
@@ -32,7 +26,7 @@ class Counter extends React.Component {
     let spanClasses =
       "bg-gray-100 border border-gray-400 text-gray-700 px-4 py-3 rounded relative";
     spanClasses =
-      this.state.count === 0
+      this.state.value === 0
         ? "bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative"
         : "bg-gray-100 border border-gray-400 text-gray-700 px-4 py-3 rounded relative";
     return spanClasses;
@@ -62,7 +56,7 @@ class Counter extends React.Component {
     );
   }
   formatCount() {
-    const { count } = this.state;
+    const { value: count } = this.state;
     return count === 0 ? "Zero " : count;
   }
 }
