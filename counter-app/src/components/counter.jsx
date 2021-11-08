@@ -10,7 +10,6 @@ class Counter extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <React.Fragment>
         <div className="mb-4">
