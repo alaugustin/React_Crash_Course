@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import 'tailwindcss/dist/base.css';
 import 'tailwindcss/dist/components.css';
 import 'tailwindcss/dist/utilities.css';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Counters from './components/counters';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Counters />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
