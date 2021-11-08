@@ -4,7 +4,7 @@ class Counter extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="mx-2 mb-4">
+        <div className="mb-4">
           {this.props.children}
           <span className={this.getSpanClasses()}>{this.formatCount()}</span>
 
