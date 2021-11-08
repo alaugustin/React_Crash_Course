@@ -1,23 +1,15 @@
 import React, { Component } from "react";
 
 class Counter extends React.Component {
-  state = {
-    value: this.props.counter.value,
-  };
-
-  handleIncrement = () => {
-    this.setState({value: this.state.value + 1});
-  };
-
   render() {
     return (
       <React.Fragment>
-        <div className="mb-4">
+        <div className="mx-2 mb-4">
           {this.props.children}
           <span className={this.getSpanClasses()}>{this.formatCount()}</span>
 
           <button
-            onClick={this.handleIncrement}
+            onClick={() => this.props.onIncrement(this.props.counter)}
             className={this.getButtonClasses()}
           >
             Increment
@@ -38,7 +30,7 @@ class Counter extends React.Component {
     let spanClasses =
       "bg-gray-100 border border-gray-400 text-gray-700 px-4 py-3 rounded relative";
     spanClasses =
-      this.state.value === 0
+      this.props.counter.value === 0
         ? "bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative"
         : "bg-gray-100 border border-gray-400 text-gray-700 px-4 py-3 rounded relative";
     return spanClasses;
@@ -62,10 +54,10 @@ class Counter extends React.Component {
   }
 
   renderTags() {
-    if (this.state.tags.length === 0) return <p>Please create a new tag.</p>;
+    if (this.props.counter.tags.length === 0) return <p>Please create a new tag.</p>;
     return (
       <ul>
-        {this.state.tags.map((tag) => (
+        {this.props.counter.tags.map((tag) => (
           <li className={this.getListClasses()} key={tag}>
             {tag}
           </li>
@@ -74,7 +66,7 @@ class Counter extends React.Component {
     );
   }
   formatCount() {
-    const { value: count } = this.state;
+    const { value: count } = this.props.counter;
     return count === 0 ? "Zero " : count;
   }
 }
