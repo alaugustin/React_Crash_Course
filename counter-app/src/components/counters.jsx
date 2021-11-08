@@ -12,13 +12,27 @@ class Counters extends Component {
   };
 
   handleDelete = (counterId) => {
-    const counters= this.state.counters.filter(c => c.id != counterId);
-    this.setState({ counters })
+    const counters = this.state.counters.filter((c) => c.id != counterId);
+    this.setState({ counters });
+  };
+
+  handleReset = () => {
+    const counters = this.state.counters.map((c) => {
+      c.value = 0;
+      return c;
+    });
   };
 
   render() {
     return (
       <>
+        <button
+          onClick={this.handleReset}
+          className={this.getResetButtonClasses()}
+        >
+          Reset
+        </button>
+
         {this.state.counters.map((counter) => (
           <Counter
             key={counter.id}
@@ -30,6 +44,12 @@ class Counters extends Component {
         ))}
       </>
     );
+  }
+
+  getResetButtonClasses() {
+    let resetButtonClasses =
+      "btn bg-gray-200 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border-b-4 border-gray-400 hover:border-gray-500 rounded";
+    return resetButtonClasses;
   }
 }
 
